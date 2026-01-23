@@ -11,14 +11,14 @@ pipeline {
          }
          stage("Checkout from SCM") {
              steps {
-                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Ashfaque-9x/a-reddit-clone-gitops'
+                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Chirag21-dev/nodejs__redittCD.git'
              }
          }
          stage("Update the Deployment Tags") {
             steps {
                 sh """
                     cat deployment.yaml
-                    sed -i "s|image: adamtravis/${APP_NAME}:.*|image: adamtravis/${APP_NAME}:${IMAGE_TAG}|g" deployment.yaml
+                    sed -i "s|image: chiragks1/${APP_NAME}:.*|image: chiragks1/${APP_NAME}:${IMAGE_TAG}|g" deployment.yaml
 
                     cat deployment.yaml
                 """

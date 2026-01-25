@@ -39,11 +39,11 @@ pipeline {
             steps {
                withCredentials([gitUsernamePassword(credentialsId: 'dockerhub_cred', gitToolName: 'Default')]) {
                sh """
-                    git config --global user.name "Ashfaque-9x"
-                    git config --global user.email "ashfaque.s510@gmail.com"
-                    git add deployment.yaml
+                    git config --global user.name "chirag21-dev"
+                    git config --global user.email "chiragks@gmail.com"
+                    git add kubernetes/deployment.yaml
                     git commit -m "Updated Deployment Manifest"
-                    git push https://github.com/Ashfaque-9x/a-reddit-clone-gitops main
+                    git push https://github.com/Chirag21-dev/nodejs__redittCD.git 
                 """
 }
                 

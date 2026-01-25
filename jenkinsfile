@@ -25,12 +25,14 @@ pipeline {
          }
          stage("Update the Deployment Tags") {
             steps {
-                sh """
+                dir('kubernetes'){
+                    sh """
                     cat deployment.yaml
                     sed -i "s|image: chiragks1/${APP_NAME}:.*|image: chiragks1/${APP_NAME}:${IMAGE_TAG}|g" deployment.yaml
 
                     cat deployment.yaml
                 """
+                }     
             }
          }
          stage("Push the changed deployment file to GitHub") {

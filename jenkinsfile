@@ -2,13 +2,15 @@ pipeline {
     agent any
     environment {
           APP_NAME = "reddit-clone-pipeline"
+          RELEASE = "1.0.0"
+          IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
     }
 
-    parameters {
+    /*parameters {
      password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your Gitlab password or token')
      string(name: 'IMAGE_TAG', defaultValue: '1', description: 'Please Enter the Image Tag to Deploy?')
      //choice(name:'environment', choices: ['functional', 'integration', 'regression', 'uat', 'release' ] ,description: 'select where need to deploy')
-    }
+    }/*
 
     stages {
          stage("Cleanup Workspace") {

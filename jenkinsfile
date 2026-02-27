@@ -54,11 +54,11 @@ pipeline {
          }
 /*stage('Deploy Node.js app Deployment and Service') {
             steps {
-                dir('Manifests'){
+                dir('kubernetes'){
                   script {
                     kubeconfig(credentialsId: 'k8s-token', serverUrl: '') {
-                        sh "kubectl apply -f bankapp.yaml -n ${KUBE_NAMESPACE}" 
-                        sh 'kubectl apply -f database.yaml -n ${KUBE_NAMESPACE}' // Ensure you have the MySQL deployment YAML ready
+                        sh "kubectl apply -f deployment.yaml  
+                        sh 'kubectl apply -f servicee.yaml
                     }  
                 }
                 
